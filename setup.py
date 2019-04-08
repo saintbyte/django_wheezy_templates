@@ -33,6 +33,7 @@ setup(
     install_requires=[
         'Django>=2.0',
         'wheezy.template>=0.1.167',
+        'wheezy.html>=0.1.147',
     ],
     zip_safe=False,
 )
