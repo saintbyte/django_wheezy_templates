@@ -10,10 +10,11 @@ from django.template import TemplateDoesNotExist
 from django.utils.module_loading import import_string
 from django.template.backends.base import BaseEngine
 from django.template.backends.utils import csrf_input_lazy, csrf_token_lazy
+from django_wheezy_templates.filters.html import escape
+from django_wheezy_templates.filters.static import static
 
 
 class Wheezy(BaseEngine):
-
     app_dirname = 'wheezy_templates'
 
     def __init__(self, params):
@@ -31,6 +32,12 @@ class Wheezy(BaseEngine):
             extensions=[CoreExtension()]
         )
 
+        self.engine.global_vars.update({
+            'e': escape,
+            'escape': escape,
+            'static': static
+        })
+
     def get_template(self, template_name):
         try:
             return Template(self.engine.get_template(template_name), self)
@@ -38,10 +45,7 @@ class Wheezy(BaseEngine):
             raise TemplateDoesNotExist(template_name, backend=self) from exc
 
 
-
-
 class Template:
-
     def __init__(self, template, backend):
         self.template = template
         self.backend = backend
