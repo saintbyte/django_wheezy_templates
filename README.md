@@ -4,6 +4,17 @@
 
 У вас проблемы с производительностью шаблонов в Django тогда попробуйте этот шаблонизатор. По моим субьективным замерам скорость в 3 раза выше. Меньше фич -- зато СКОРОСТЬ
 
+### Язык шаблонов
+В качестве движка шаблонизатора используется wheezy.template и wheezy.html
+
+#### wheezy.html
+ - [Документация по  wheezy.html](https://wheezyhtml.readthedocs.io/en/latest/)
+ - [Github wheezy.html](https://github.com/akornatskyy/wheezy.html)
+ 
+ #### wheezy.template
+ - [Документация по  wheezy.template](https://wheezytemplate.readthedocs.io/en/latest/) 
+ - [Github wheezy.template](https://github.com/akornatskyy/wheezy.template)
+ 
 ### Установка
 pip install git+https://github.com/saintbyte/django_wheezy_templates
 
